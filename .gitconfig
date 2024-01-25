@@ -1,0 +1,17 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[diff]
+	tool = vimdiff
+[core]
+	editor = vim
+[alias]
+	difftool = difftool -y -t vimdiff -R
+[mergetool "myvimdiff"]
+	cmd = vim "$MERGED"
+[merge]
+	tool = vimdiff
+[merge "mergetool"]
+	prompt = false
