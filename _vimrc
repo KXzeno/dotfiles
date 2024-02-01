@@ -12,7 +12,17 @@ set ruler "Always show current position
 set showcmd "Shows what command I'm typing
 set hlsearch "Highlight search
 syntax on
-let g:mapleader = ","
+
+let g:mapleader = "\<F7>"
+cmap <Leader>n norm 
+vmap <Leader>n :norm 
+cmap <Leader>t ,t.<CR> 
+vmap <Leader>/ <S-I>// <Esc>
+nmap <Leader>o O<Esc>o
+
+" Enclose block with '{'
+imap <Leader>{ {<Esc><Right><Del>%O}<Esc>%=G
+
 nnoremap <Leader>w :w<CR>
 vmap <Leader>y "+y
 vmap <Leader>d "+d
@@ -49,7 +59,7 @@ autocmd FileType text set tw=79
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab 
 
 "Text over 79 characters per line turns red
-autocmd FileType javascript match Error /\%79v.\+/
+"autocmd FileType javascript match Error /\%79v.\+/
 
 "KX
 set shell=pwsh
