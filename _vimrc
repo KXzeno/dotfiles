@@ -17,6 +17,7 @@ let g:mapleader = "\<F7>"
 cmap <Leader>n norm 
 " During pattern find command e.g., :'<,'>g/pattern/<cmap>= { A }
 cmap <Leader>b* norm! ni
+nmap <Leader>bvs :belowright vs \| b 
 vmap <Leader>n :norm 
 cmap <Leader>t ,t.<CR> 
 vmap <Leader>/ <S-I>// <Esc>
