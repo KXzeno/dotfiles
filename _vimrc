@@ -223,8 +223,8 @@ nnoremap gj J
 nnoremap <C-Down> <C-e> 
 nnoremap <C-Up> <C-y> 
 
-autocmd FileType java,c,php,asmx,asp,atp,cpp,markdown,js inoremap ' ''<Left>
-autocmd FileType java,c,php,asmx,asp,atp,cpp,tex,markdown,js inoremap " ""<Left>
+autocmd FileType java,c,php,asmx,asp,atp,cpp,js inoremap ' ''<Left>
+autocmd FileType java,c,php,asmx,asp,atp,cpp,tex,js inoremap " ""<Left>
 autocmd FileType tex imap <F4> <Esc>:w<CR>:!pdflatex %<CR>
 autocmd FileType tex imap <F3> <Esc>:w<CR>:!lualatex %<CR>
 autocmd FileType tex map <F6> :w<CR>:!pdflatex %<CR>
