@@ -63,7 +63,7 @@
         [
             {
                 "antialiasingMode": "grayscale",
-                "backgroundImage": "C:\\DESK_FLDRS\\Education\\Code\\$MYVIMRC & WT_SETTINGS\\file.gif",
+                "backgroundImage": "insert/gif/here.gif",
                 "backgroundImageAlignment": "center",
                 "backgroundImageOpacity": 0.015,
                 "backgroundImageStretchMode": "uniformToFill",
