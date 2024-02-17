@@ -1,1 +1,1 @@
-### Made to automate personal retrieval of highly ambiguous configs
+### Made to automate personal retrieval of ambiguous configs
