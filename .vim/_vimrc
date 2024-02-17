@@ -252,6 +252,9 @@ hi SpellBad cterm=underline
 " Set style for gVim
 hi SpellBad gui=undercurl
 
+" Change default syntax for ft-specific hl groups
+hi Todo guifg=#FF00FF guibg=NONE
+
 " Disables perma hlsearch
 augroup disable_hlsearch_on_insert
     autocmd!
