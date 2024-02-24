@@ -96,7 +96,7 @@ snippet tryf "try { ... } catch(e) { ... } finally { ... }"
 snippet terr
 	throw new Error('${1:error message}')
 # return
-snippet ret
+snippet rtn
 	return ${0:result};
 snippet for "for (...) {...}"
 	for (let ${1:i} = 0, ${2:len} = ${3:Things.length}; $1 < $2; $1++) {
@@ -206,7 +206,7 @@ snippet /**
 	/**
 	 * ${1:description}
 	 * @param {${2:}} ${3:}
-	 * @returns ${3:}
+	 * @return {${3:}} ${4:}
 	 * @author ${0:}
 	 */
 snippet @par
