@@ -48,7 +48,7 @@ map <C-J> :bnext<CR>
 vnoremap . :normal.<CR>
 
 " make boilerplate for a React Functional Component
-nmap <Leader>rc iimport React from 'reactA;oexport default function %(a {return (kmbgg=G/(lma:w<CR>
+nmap <Leader>rc iimport React from 'reactA;oexport default function %bc?  A(a {return (kmbgg=G/(lma:w<CR>
 
 " automate fold saving from current session
 augroup auto_save_folds
