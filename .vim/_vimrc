@@ -33,6 +33,7 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
+nmap <Leader>cg *#cgn
 
 "Reset <C-a> mapping due to 'mswin.vim' mappings, see :verbose map <C-a>
 unm <C-a>
