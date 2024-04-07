@@ -81,8 +81,10 @@ hi link Whitespace EndOfBuffer
 hi diffAdded guifg=#b3a1e6 ctermfg=146 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi diffRemoved guifg=#e33400 ctermfg=166 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 " hi Normal guifg=#ecf0c1 ctermfg=255 guibg=#0f111b ctermbg=233 gui=NONE cterm=NONE
-hi Normal guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Comment guifg=#30365F ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+" hi Normal guifg=#BFCFE7 ctermfg=NONE guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Normal guifg=#F8EDFF ctermfg=NONE guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi Comment guifg=#30365F ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Comment guifg=#445069 ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Constant guifg=#f2ce00 ctermfg=220 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Identifier guifg=#00a3cc ctermfg=38 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Statement guifg=#5ccc96 ctermfg=78 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -94,7 +96,7 @@ hi Error guifg=#e33400 ctermfg=166 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Ignore guifg=#e33400 ctermfg=166 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Delimiter guifg=#ecf0c1 ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Operator guifg=#ce6f8f ctermfg=168 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Tag guifg=#b3a1e6 ctermfg=146 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Tag guifg=#A66CFF ctermfg=146 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Debug guifg=#b3a1e6 ctermfg=146 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi StorageClass guifg=#b3a1e6 ctermfg=146 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi String guifg=#00a3cc ctermfg=38 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -169,59 +171,142 @@ hi link typescriptProp Tag
 hi link typescriptVariable Title
 hi link jsxTagName HTMLTagName
 hi link jsxComponentName Tag
-hi link jsxOpenPunct jsxTagName
+"hi link jsxOpenPunct jsxTagName
+hi jsxOpenPunct guifg=#8B93FF
 hi link jsxClosePunct jsxOpenPunct
 hi link jsxCloseString jsxClosePunct
+""" Fix typescript fields
+hi typescriptGlobal guifg=#EBF400
+hi typescriptBOMWindowProp guifg=#F2BB7B
+hi typescriptString guifg=#F7DB6A
+hi link typescriptTemplate typescriptString
+hi link typescriptTemplateSB Title
+hi typescriptDOMDocMethod guifg=#937DC2
+hi typescriptArrowFunc guifg=#FF2626
+hi link typescriptTernaryOp Title
+hi link typescriptUnaryOp typescriptArrowFunc
+hi link typescriptBinaryOp typescriptArrowFunc
+hi typescriptConditional guifg=#A6CF98
+hi typescriptReflectMethod guifg=#937DC2
+hi typescriptNumber guifg=#79ff61
+hi typescriptFuncComma guifg=#FFFFFF
+hi jsxAttrib guifg=#5272F2
+hi link tsxAttrib jsxAttrib
+hi link jsxEqual typescriptArrowFunc
+hi typescriptArrowFuncArg guifg=#AD62AA
+hi link typescriptCall typescriptArrowFuncArg
+hi link typescripttypescriptCall typescriptArrowFuncArg
+hi link typescriptOperator typescriptArrowFunc
+hi link typescriptStatementKeyword typescriptConditional
+" hi typescriptVariableDeclaration guifg=#AFB4FF
+hi typescriptDocNotation guifg=#FC6736
+hi typescriptDocNamedParamType guifg=#C5EBAA
+hi typescriptDocComment guifg=#C0D6E8
+hi link typescriptComment typescriptDocComment
+hi link typescriptDocTags typescriptDocNotation
+hi link typescriptObjectSpread typescriptArrowFuncArg
+hi typescriptObjectLabel guifg=#5356FF
+hi link typescriptDocParamname typescriptObjectLabel
+
+hi link typescriptFuncCall typescriptReflectMethod
+hi link typescriptArrayMethod typescriptReflectMethod
+hi link typescriptArrayStaticMethod typescriptReflectMethod
+hi link typescriptBOMHistoryMethod typescriptReflectMethod
+hi link typescriptBOMLocationMethod typescriptReflectMethod
+hi link typescriptBOMNavigatorMethod typescriptReflectMethod
+hi link typescriptBOMWindowMethod typescriptReflectMethod
+hi link typescriptBlobMethod typescriptReflectMethod
+hi link typescriptCacheMethod typescriptReflectMethod
+hi link typescriptCryptoMethod typescriptReflectMethod
+hi link typescriptDOMEventMethod typescriptReflectMethod
+hi link typescriptDOMEventTargetMethod typescriptReflectMethod
+hi link typescriptDOMFormMethod typescriptReflectMethod
+hi link typescriptDOMNodeMethod typescriptReflectMethod
+hi link typescriptDOMStorageMethod typescriptReflectMethod
+hi link typescriptDateMethod typescriptReflectMethod
+hi link typescriptDateStaticMethod typescriptReflectMethod
+hi link typescriptES6MapMethod typescriptReflectMethod
+hi link typescriptES6SetMethod typescriptReflectMethod
+hi link typescriptEncodingMethod typescriptReflectMethod
+hi link typescriptFileListMethod typescriptReflectMethod
+hi link typescriptFileReaderMethod typescriptReflectMethod
+hi link typescriptFunctionMethod typescriptReflectMethod
+hi link typescriptGeolocationMethod typescriptReflectMethod
+hi link typescriptHeadersMethod typescriptReflectMethod
+hi link typescriptIntlMethod typescriptReflectMethod
+hi link typescriptJSONStaticMethod typescriptReflectMethod
+hi link typescriptMathStaticMethod typescriptReflectMethod
+hi link typescriptNumberMethod typescriptReflectMethod
+hi link typescriptNumberStaticMethod typescriptReflectMethod
+hi link typescriptObjectMethod typescriptReflectMethod
+hi link typescriptObjectStaticMethod typescriptReflectMethod
+hi link typescriptPaymentMethod typescriptReflectMethod
+hi link typescriptPaymentResponseMethod typescriptReflectMethod
+hi link typescriptPromiseMethod typescriptReflectMethod
+hi link typescriptPromiseStaticMethod typescriptReflectMethod
+hi link typescriptReflectMethod typescriptReflectMethod
+hi link typescriptRegExpMethod typescriptReflectMethod
+hi link typescriptRequestMethod typescriptReflectMethod
+hi link typescriptResponseMethod typescriptReflectMethod
+hi link typescriptServiceWorkerMethod typescriptReflectMethod
+hi link typescriptStringMethod typescriptReflectMethod
+hi link typescriptStringStaticMethod typescriptReflectMethod
+hi link typescriptSubtleCryptoMethod typescriptReflectMethod
+hi link typescriptSymbolStaticMethod typescriptReflectMethod
+hi link typescriptURLStaticMethod typescriptReflectMethod
+hi link typescriptXHRMethod typescriptReflectMethod
+"hi Function guifg=#A459D1
+"""
 hi link typescriptBraces Normal
-hi typescriptArrowFunc guifg=#ce6f8f ctermfg=168 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi link typescriptNumberStaticMethod Function
-hi link typescriptNumberMethod Function
-hi link typescriptStringStaticMethod Function
-hi link typescriptStringMethod Function
-hi link typescriptArrayStaticMethod Function
-hi link typescriptArrayMethod Function
-hi link typescriptObjectStaticMethod Function
-hi link typescriptObjectMethod Function
-hi link typescriptSymbolStaticMethod Function
-hi link typescriptFunctionMethod Function
-hi link typescriptMathStaticMethod Function
-hi link typescriptDateStaticMethod Function
-hi link typescriptDateMethod Function
-hi link typescriptJSONStaticMethod Function
-hi link typescriptRegExpMethod Function
-hi link typescriptES6MapMethod Function
-hi link typescriptES6SetMethod Function
-hi link typescriptPromiseStaticMethod Function
-hi link typescriptPromiseMethod Function
-hi link typescriptReflectMethod Function
-hi link typescriptIntlMethod Function
-hi link typescriptBOMNavigatorMethod Function
-hi link typescriptServiceWorkerMethod Function
-hi link typescriptBOMLocationMethod Function
-hi link typescriptBOMHistoryMethod Function
-hi link typescriptConsoleMethod Function
-hi link typescriptXHRMethod Function
-hi link typescriptFileMethod Function
-hi link typescriptFileReaderMethod Function
-hi link typescriptFileListMethod Function
-hi link typescriptBlobMethod Function
-hi link typescriptURLStaticMethod Function
-hi link typescriptSubtleCryptoMethod Function
-hi link typescriptCryptoMethod Function
-hi link typescriptHeadersMethod Function
-hi link typescriptRequestMethod Function
-hi link typescriptResponseMethod Function
-hi link typescriptCacheMethod Function
-hi link typescriptEncodingMethod Function
-hi link typescriptGeolocationMethod Function
-hi link typescriptPaymentMethod Function
-hi link typescriptPaymentResponseMethod Function
-hi link typescriptDOMNodeMethod Function
-hi link typescriptDOMDocMethod Function
-hi link typescriptDOMEventTargetMethod Function
-hi link typescriptDOMEventMethod Function
-hi link typescriptDOMStorageMethod Function
-hi link typescriptDOMFormMethod Function
+"hi typescriptArrowFunc guifg=#ce6f8f ctermfg=168 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi link typescriptNumberStaticMethod Function
+"hi link typescriptNumberMethod Function
+"hi link typescriptStringStaticMethod Function
+"hi link typescriptStringMethod Function
+"hi link typescriptArrayStaticMethod Function
+"hi link typescriptArrayMethod Function
+"hi link typescriptObjectStaticMethod Function
+"hi link typescriptObjectMethod Function
+"hi link typescriptSymbolStaticMethod Function
+"hi link typescriptFunctionMethod Function
+"hi link typescriptMathStaticMethod Function
+"hi link typescriptDateStaticMethod Function
+"hi link typescriptDateMethod Function
+"hi link typescriptJSONStaticMethod Function
+"hi link typescriptRegExpMethod Function
+"hi link typescriptES6MapMethod Function
+"hi link typescriptES6SetMethod Function
+"hi link typescriptPromiseStaticMethod Function
+"hi link typescriptPromiseMethod Function
+"hi link typescriptReflectMethod Function
+"hi link typescriptIntlMethod Function
+"hi link typescriptBOMNavigatorMethod Function
+"hi link typescriptServiceWorkerMethod Function
+"hi link typescriptBOMLocationMethod Function
+"hi link typescriptBOMHistoryMethod Function
+"hi link typescriptConsoleMethod Function
+"hi link typescriptXHRMethod Function
+"hi link typescriptFileMethod Function
+"hi link typescriptFileReaderMethod Function
+"hi link typescriptFileListMethod Function
+"hi link typescriptBlobMethod Function
+"hi link typescriptURLStaticMethod Function
+"hi link typescriptSubtleCryptoMethod Function
+"hi link typescriptCryptoMethod Function
+"hi link typescriptHeadersMethod Function
+"hi link typescriptRequestMethod Function
+"hi link typescriptResponseMethod Function
+"hi link typescriptCacheMethod Function
+"hi link typescriptEncodingMethod Function
+"hi link typescriptGeolocationMethod Function
+"hi link typescriptPaymentMethod Function
+"hi link typescriptPaymentResponseMethod Function
+"hi link typescriptDOMNodeMethod Function
+"hi link typescriptDOMDocMethod Function
+"hi link typescriptDOMEventTargetMethod Function
+"hi link typescriptDOMEventMethod Function
+"hi link typescriptDOMStorageMethod Function
+"hi link typescriptDOMFormMethod Function
 hi link vimGroupName Normal
 hi link yamlKeyValueDelimiter Normal
 hi link yamlBlockMappingKey Function
