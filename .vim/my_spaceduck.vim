@@ -193,6 +193,7 @@ hi typescriptFuncComma guifg=#FFFFFF
 hi jsxAttrib guifg=#5272F2
 hi link tsxAttrib jsxAttrib
 hi link jsxEqual typescriptArrowFunc
+hi jsxString guifg=#50C4ED
 hi typescriptArrowFuncArg guifg=#AD62AA
 hi link typescriptCall typescriptArrowFuncArg
 hi link typescripttypescriptCall typescriptArrowFuncArg
@@ -206,7 +207,11 @@ hi link typescriptComment typescriptDocComment
 hi link typescriptDocTags typescriptDocNotation
 hi link typescriptObjectSpread typescriptArrowFuncArg
 hi typescriptObjectLabel guifg=#5356FF
-hi link typescriptDocParamname typescriptObjectLabel
+hi link typescriptDocParamName typescriptObjectLabel
+hi link typescriptStringProperty typescriptString
+hi link typescriptEndColons typescriptFuncComma
+hi link typescriptAssign typescriptBinaryOp
+"syn clear typescriptBlock " Temp fix for missing syntax hl on nested fn
 
 hi link typescriptFuncCall typescriptReflectMethod
 hi link typescriptArrayMethod typescriptReflectMethod
