@@ -214,6 +214,7 @@ hi link typescriptAssign typescriptBinaryOp
 "syn clear typescriptBlock " Temp fix for missing syntax hl on nested fn
 hi link typescriptObjectLabel typescriptDestructureVariable
 hi jsxBraces guifg=#FFFFFF
+hi typescriptTypeReference guifg=#D0A2F7
 
 hi link typescriptFuncCall typescriptReflectMethod
 hi link typescriptArrayMethod typescriptReflectMethod
