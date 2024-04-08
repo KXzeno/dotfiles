@@ -206,12 +206,14 @@ hi typescriptDocComment guifg=#C0D6E8
 hi link typescriptComment typescriptDocComment
 hi link typescriptDocTags typescriptDocNotation
 hi link typescriptObjectSpread typescriptArrowFuncArg
-hi typescriptObjectLabel guifg=#5356FF
+"hi typescriptObjectLabel guifg=#5356FF
 hi link typescriptDocParamName typescriptObjectLabel
 hi link typescriptStringProperty typescriptString
 hi link typescriptEndColons typescriptFuncComma
 hi link typescriptAssign typescriptBinaryOp
 "syn clear typescriptBlock " Temp fix for missing syntax hl on nested fn
+hi link typescriptObjectLabel typescriptDestructureVariable
+hi jsxBraces guifg=#FFFFFF
 
 hi link typescriptFuncCall typescriptReflectMethod
 hi link typescriptArrayMethod typescriptReflectMethod
