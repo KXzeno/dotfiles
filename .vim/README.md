@@ -1,6 +1,6 @@
 Add to polyglot
 
-doc.vim
+```doc.vim
  syntax keyword typescriptDocTags               contained borrows exports nextgroup=typescriptDocA skipwhite
  syntax keyword typescriptDocTags               contained param arg argument property prop module nextgroup=typescriptDocNamedParamType,typescriptDocParamName skipwhite
 
@@ -10,11 +10,13 @@ doc.vim
  syntax keyword typescriptDocTags               contained define enum extends implements this typedef nextgroup=typescriptDocParamType skipwhite
  syntax keyword typescriptDocTags               contained return returns throws exception nextgroup=typescriptDocParamType,typescriptDocParamName skipwhite
  syntax keyword typescriptDocTags               contained see nextgroup=typescriptDocRef skipwhite
+ ```
                                                                                                                   
-function.vim
+```function.vim
 +syn match tsxFuncName /\b\([a-zA-Z_]\w*\)\s*(/ contained
+```
 
-identifiers.vim
+```identifiers.vim
 syntax region  typescriptIndexExpr      contained matchgroup=typescriptProperty start=/\[/ end=/]/ contains=@typescriptValue,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation,typescriptFuncCallArg skipwhite skipempty
 
 -syntax match   typescriptDotNotation           /\.\|?\.\|!\./ nextgroup=typescriptProp skipnl
@@ -29,5 +31,10 @@ syntax region  typescriptIndexExpr      contained matchgroup=typescriptProperty 
  syntax region  typescriptParenExp              matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptComments,@typescriptValue,typescriptCastKeyword nextgroup=@typescriptSymbols skipwhite skipempty
  syntax region  typescriptFuncCallArg           contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptValue,@typescriptComments,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation skipwhite skipempty skipnl
  syntax region  typescriptEventFuncCallArg      contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptEventExpression
+ ```
 
-
+```common.vim
+" other keywords like return,case,yield uses containedin
+syntax region  typescriptBlock                 matchgroup=typescriptBraces start=/{/ end=/}/ contains=@typescriptStatement,@typescriptComments,typescriptFuncCall fold
+  " Temporary fix, add FuncCall to Block children
+```
