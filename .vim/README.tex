@@ -38,3 +38,22 @@ syntax region  typescriptIndexExpr      contained matchgroup=typescriptProperty 
 syntax region  typescriptBlock                 matchgroup=typescriptBraces start=/{/ end=/}/ contains=@typescriptStatement,@typescriptComments,typescriptFuncCall fold
   " Temporary fix, add FuncCall to Block children
 ```
+
+```jsx_pretty.vim
+" <tag key={this.props.key}>
+"          ~~~~~~~~~~~~~~~~
+syntax region jsxExpressionBlock 
+                  \ matchgroup=jsxBraces
+                  \ start=+{+ 
+                  \ end=+}+ 
+                  \ contained 
+                  \ extend 
+                  \ contains=jsxExpressionBlock,@jsExpression,jsSpreadExpression,@javascriptExpression,javascriptSpreadOp,@javaScriptEmbededExpr,@typescriptExpression,typescriptObjectSpread
+" syntax region jsxExpressionBlock
+"       \ matchgroup=jsxBraces
+"       \ start=+{+
+"       \ end=+}+
+"       \ contained
+"       \ extend
+"       \ contains=@jsExpression,jsSpreadExpression,@javascriptExpression,javascriptSpreadOp,@javaScriptEmbededExpr,@typescriptExpression,typescriptObjectSpread,jsComment,@javascriptComments,javaScriptLineComment,javaScriptComment,typescriptLineComment,typescriptComment,typescriptFuncCall
+```
