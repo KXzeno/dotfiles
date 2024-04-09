@@ -215,6 +215,9 @@ hi link typescriptAssign typescriptBinaryOp
 hi link typescriptObjectLabel typescriptDestructureVariable
 hi jsxBraces guifg=#FFFFFF
 hi typescriptTypeReference guifg=#D0A2F7
+hi typescriptCastKeyword guifg=#FF6777
+hi typescriptTypeReference guifg=#FF52A2
+hi typescriptCryptoGlobal guifg=#A2FF86
 
 hi link typescriptFuncCall typescriptReflectMethod
 hi link typescriptArrayMethod typescriptReflectMethod
