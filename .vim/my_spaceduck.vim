@@ -198,6 +198,7 @@ hi typescriptArrowFuncArg guifg=#AD62AA
 hi link typescriptCall typescriptArrowFuncArg
 hi link typescripttypescriptCall typescriptArrowFuncArg
 hi typescriptOperator guifg=#5356FF
+hi link typescriptAsyncFuncKeyword typescriptOperator
 hi link typescriptStatementKeyword typescriptConditional
 " hi typescriptVariableDeclaration guifg=#AFB4FF
 hi typescriptDocNotation guifg=#FC6736
