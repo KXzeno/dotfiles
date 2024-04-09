@@ -197,7 +197,7 @@ hi jsxString guifg=#50C4ED
 hi typescriptArrowFuncArg guifg=#AD62AA
 hi link typescriptCall typescriptArrowFuncArg
 hi link typescripttypescriptCall typescriptArrowFuncArg
-hi link typescriptOperator typescriptArrowFunc
+hi typescriptOperator guifg=#5356FF
 hi link typescriptStatementKeyword typescriptConditional
 " hi typescriptVariableDeclaration guifg=#AFB4FF
 hi typescriptDocNotation guifg=#FC6736
