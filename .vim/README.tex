@@ -63,3 +63,18 @@ syntax cluster typescriptValue
   \ contains=@typescriptExpression,typescriptObjectLiteral,typescriptFuncCall
 ```
 
+```type.vim
++ " Temp fix for ArrowFuncArg passing in call
++ syntax match typescriptCallInnerBraceStart /{/
++   \ containedin=typescriptCall
++   \ contained skipwhite skipnl
++ syntax match typescriptCallInnerBraceEnd /}/
++   \ containedin=typescriptCall
++   \ contained skipwhite skipnl
+
+syntax region typescriptCall matchgroup=typescriptParens
+  \ start=/(/ end=/)/
+  \ contains=typescriptDecorator,@typescriptParameterList,@typescriptComments
+  \ nextgroup=typescriptTypeAnnotation,typescriptBlock
+  \ contained skipwhite skipnl
+```
