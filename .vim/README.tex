@@ -29,7 +29,7 @@ syntax region  typescriptIndexExpr      contained matchgroup=typescriptProperty 
 -" syntax match   typescriptFuncCall              contained /[a-zA-Z]\k*\ze(/ nextgroup=typescriptFuncCallArg
 +syntax match   typescriptFuncCall              contained /[a-zA-Z]\k*ze(/ nextgroup=typescriptFuncCallArg
  syntax region  typescriptParenExp              matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptComments,@typescriptValue,typescriptCastKeyword nextgroup=@typescriptSymbols skipwhite skipempty
- syntax region  typescriptFuncCallArg           contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptValue,@typescriptComments,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation skipwhite skipempty skipnl
+ syntax region  typescriptFuncCallArg           contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptValue,@typescriptComments,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation,typescriptClassAndObjectName skipwhite skipempty skipnl
  syntax region  typescriptEventFuncCallArg      contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptEventExpression
  ```
 
@@ -77,4 +77,16 @@ syntax region typescriptCall matchgroup=typescriptParens
   \ contains=typescriptDecorator,@typescriptParameterList,@typescriptComments
   \ nextgroup=typescriptTypeAnnotation,typescriptBlock
   \ contained skipwhite skipnl
+```
+
+```object.vim
+" Fix
+syntax region typescriptClassAndObjectName 
+      \ start=/[A-Z]/ 
+      \ end=/\k*\|\ze\./
+      \ matchgroup=typescriptParens
+      \ contained containedin=typescriptBlock,typescriptParenExp nextgroup=typescriptClassAndObjectProperty skipwhite skipempty
+
+"syntax match typescriptClassAndObjectProperty /\.\zs\<\K[^A-Z]\k*\ze\./ contained containedin=typescriptBlock nextgroup=typescriptAssign,typescriptFuncCall,typescriptDotNotation
+syntax match typescriptClassAndObjectProperty /\.\zs\w*\ze\(\.\|;\|\[\|\s\)/ contained containedin=typescriptBlock nextgroup=typescriptAssign,typescriptFuncCall,typescriptDotNotation
 ```
