@@ -24,7 +24,8 @@ syntax region  typescriptIndexExpr      contained matchgroup=typescriptProperty 
 +
 +"syntax cluster typescriptFunctions contains=typescriptFuncCall
 +"syntax match   typescriptFuncCall              /\(\.\|?\.\|!\.\)\@<!\k\+\ze(/ contained nextgroup=typescriptFuncCallArg
-+syntax match   typescriptDotNotation           /\.\|?\.\|!\./ nextgroup=typescriptProp,typescriptFuncCall skipnl " Temp Solution
+syntax match   tsxCOProp /\w*\ze\(\.\|;\|\[\|\s\|\n\|$\)/ "Temp fix for not reading 'typescriptClassAndObjectProperty'
+syntax match   typescriptDotNotation           /\.\|?\.\|!\./ nextgroup=typescriptClassAndObjectProperty,typescriptProp,typescriptFuncCall,typescriptBlock,tsxCOProp skipnl " Temp Solution
  syntax match   typescriptDotStyleNotation      /\.style\./ nextgroup=typescriptDOMStyle transparent
 -" syntax match   typescriptFuncCall              contained /[a-zA-Z]\k*\ze(/ nextgroup=typescriptFuncCallArg
 +syntax match   typescriptFuncCall              contained /[a-zA-Z]\k*ze(/ nextgroup=typescriptFuncCallArg
@@ -88,5 +89,8 @@ syntax region typescriptClassAndObjectName
       \ contained containedin=typescriptBlock,typescriptParenExp nextgroup=typescriptClassAndObjectProperty skipwhite skipempty
 
 "syntax match typescriptClassAndObjectProperty /\.\zs\<\K[^A-Z]\k*\ze\./ contained containedin=typescriptBlock nextgroup=typescriptAssign,typescriptFuncCall,typescriptDotNotation
-syntax match typescriptClassAndObjectProperty /\.\zs\w*\ze\(\.\|;\|\[\|\s\)/ contained containedin=typescriptBlock nextgroup=typescriptAssign,typescriptFuncCall,typescriptDotNotation
+syntax match typescriptClassAndObjectProperty /\.\zs\w*\ze\(\.\|;\|\[\|\s\|\n\|$\)/ contained containedin=typescriptBlock nextgroup=typescriptAssign,typescriptFuncCall,typescriptDotNotation
+syntax cluster props add=typescriptClassAndObjectProperty
+
+  // Contained not required, instead: common.vim and append to 'contains' field in typescriptBlock
 ```
