@@ -20,6 +20,7 @@ Add to polyglot
 syntax region  typescriptIndexExpr      contained matchgroup=typescriptProperty start=/\[/ end=/]/ contains=@typescriptValue,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation,typescriptFuncCallArg skipwhite skipempty
 
 -syntax match   typescriptDotNotation           /\.\|?\.\|!\./ nextgroup=typescriptProp skipnl
+  \ contains=typescriptOptionalChain
 +syntax match typescriptFuncCall /\k*\ze(/ nextgroup=typescriptFuncCallArg skipwhite skipempty
 +
 +"syntax cluster typescriptFunctions contains=typescriptFuncCall
@@ -32,6 +33,9 @@ syntax match   typescriptDotNotation           /\.\|?\.\|!\./ nextgroup=typescri
  syntax region  typescriptParenExp              matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptComments,@typescriptValue,typescriptCastKeyword nextgroup=@typescriptSymbols skipwhite skipempty
  syntax region  typescriptFuncCallArg           contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptValue,@typescriptComments,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation,typescriptClassAndObjectName skipwhite skipempty skipnl
  syntax region  typescriptEventFuncCallArg      contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptEventExpression
+ ...
+syntax match typescriptOptionalChain /?\ze\./
+      \ containedin=typescriptDotNotation
  ```
 
 ```common.vim
