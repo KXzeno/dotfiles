@@ -25,13 +25,13 @@ syntax region  typescriptIndexExpr      contained matchgroup=typescriptProperty 
 +
 +"syntax cluster typescriptFunctions contains=typescriptFuncCall
 +"syntax match   typescriptFuncCall              /\(\.\|?\.\|!\.\)\@<!\k\+\ze(/ contained nextgroup=typescriptFuncCallArg
-syntax match   tsxCOProp /\w*\ze\(\.\|;\|\[\|\s\|\n\|$\)/ "Temp fix for not reading 'typescriptClassAndObjectProperty'
+syntax match   tsxCOProp /\w*\ze\(\.\|;\|\[\|\s\|\n\|\)|$\)/ nextgroup=typescriptDotNotation,typescriptParens,typescriptConditionalParen "Temp fix for not reading 'typescriptClassAndObjectProperty' " Only handles closeing paren as of now ('\|)\|...'), add more if conflicting
 syntax match   typescriptDotNotation           /\.\|?\.\|!\./ nextgroup=typescriptClassAndObjectProperty,typescriptProp,typescriptFuncCall,typescriptBlock,tsxCOProp skipnl " Temp Solution
  syntax match   typescriptDotStyleNotation      /\.style\./ nextgroup=typescriptDOMStyle transparent
 -" syntax match   typescriptFuncCall              contained /[a-zA-Z]\k*\ze(/ nextgroup=typescriptFuncCallArg
 +syntax match   typescriptFuncCall              contained /[a-zA-Z]\k*ze(/ nextgroup=typescriptFuncCallArg
  syntax region  typescriptParenExp              matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptComments,@typescriptValue,typescriptCastKeyword nextgroup=@typescriptSymbols skipwhite skipempty
- syntax region  typescriptFuncCallArg           contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptValue,@typescriptComments,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation,typescriptClassAndObjectName skipwhite skipempty skipnl
+ syntax region  typescriptFuncCallArg           contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptValue,@typescriptComments,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation,typescriptClassAndObjectName,typescriptClassAndObjectProperty,typescriptConditional skipwhite skipempty skipnl
  syntax region  typescriptEventFuncCallArg      contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptEventExpression
  ...
 syntax match typescriptOptionalChain /?\ze\./
@@ -97,4 +97,25 @@ syntax match typescriptClassAndObjectProperty /\.\zs\w*\ze\(\.\|;\|\[\|\s\|\n\|$
 syntax cluster props add=typescriptClassAndObjectProperty
 
   // Contained not required, instead: common.vim and append to 'contains' field in typescriptBlock
+0.16: Fix Object Label and nested props
+syntax region  typescriptObjectLiteral         matchgroup=typescriptBraces
+  \ start=/{/ end=/}/
+  \ contains=@typescriptComments,typescriptObjectLabel,typescriptStringProperty,typescriptComputedPropertyName,typescriptObjectAsyncKeyword,typescriptTernary,typescriptCastKeyword,typescriptClassAndObjectName,typescriptGlobal,typescriptFuncCall,typescriptClassAndObjectProperty
+  \ fold contained
+```
+
+```function.vim
+syntax region typescriptParamImpl matchgroup=typescriptParens
+  \ start=/(/ end=/)/
+  \ contains=typescriptDecorator,@typescriptParameterList,@typescriptComments,typescriptBlock,typescriptClassAndObjectName,typescriptDotNotation,typescriptClassAndObjectProperty,tsxCOProp
+  \ nextgroup=typescriptReturnAnnotation,typescriptBlock
+  \ contained skipwhite skipnl
+```
+```keyword.vim
+syntax region  typescriptConditionalParen             contained matchgroup=typescriptParens
+  "\ start=/(/ end=/)/
+  \ start=/\(\w\+\)/ end=/\(\w\+\)/
+  \ contains=@typescriptValue,@typescriptComments,typescriptDotNotation,typescriptBinaryOp,tsxCOProp,typescriptClassAndObjectProperty
+  \ nextgroup=typescriptBlock
+  \ skipwhite skipempty 
 ```
