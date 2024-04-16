@@ -25,12 +25,12 @@ syntax region  typescriptIndexExpr      contained matchgroup=typescriptProperty 
 +
 +"syntax cluster typescriptFunctions contains=typescriptFuncCall
 +"syntax match   typescriptFuncCall              /\(\.\|?\.\|!\.\)\@<!\k\+\ze(/ contained nextgroup=typescriptFuncCallArg
-syntax match   tsxCOProp /\w*\ze\(\.\|;\|\[\|\s\|\n\|\)|$\)/ nextgroup=typescriptDotNotation,typescriptParens,typescriptConditionalParen "Temp fix for not reading 'typescriptClassAndObjectProperty' " Only handles closeing paren as of now ('\|)\|...'), add more if conflicting
+syntax match   tsxCOProp /\w*\ze\(\.\|;\|\[\|\s\|)\|\n\|$\)/ nextgroup=typescriptDotNotation,typescriptParens,typescriptConditionalParen "Temp fix for not reading 'typescriptClassAndObjectProperty' " Only handles closeing paren as of now ('\|)\|...'), add more if conflicting
 syntax match   typescriptDotNotation           /\.\|?\.\|!\./ nextgroup=typescriptClassAndObjectProperty,typescriptProp,typescriptFuncCall,typescriptBlock,tsxCOProp skipnl " Temp Solution
  syntax match   typescriptDotStyleNotation      /\.style\./ nextgroup=typescriptDOMStyle transparent
 -" syntax match   typescriptFuncCall              contained /[a-zA-Z]\k*\ze(/ nextgroup=typescriptFuncCallArg
 +syntax match   typescriptFuncCall              contained /[a-zA-Z]\k*ze(/ nextgroup=typescriptFuncCallArg
- syntax region  typescriptParenExp              matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptComments,@typescriptValue,typescriptCastKeyword nextgroup=@typescriptSymbols skipwhite skipempty
+ syntax region  typescriptParenExp              matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptComments,@typescriptValue,typescriptCastKeyword,typescriptClassAndObjectName,typescriptClassAndObjectProperty,typescriptDotNotation,typescriptBinaryOp nextgroup=@typescriptSymbols skipwhite skipempty
  syntax region  typescriptFuncCallArg           contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptValue,@typescriptComments,typescriptCastKeyword nextgroup=@typescriptSymbols,typescriptDotNotation,typescriptClassAndObjectName,typescriptClassAndObjectProperty,typescriptConditional skipwhite skipempty skipnl
  syntax region  typescriptEventFuncCallArg      contained matchgroup=typescriptParens start=/(/ end=/)/ contains=@typescriptEventExpression
  ...
