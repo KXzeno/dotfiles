@@ -40,8 +40,8 @@ syntax match typescriptOptionalChain /?\ze\./
 
 ```common.vim
 " other keywords like return,case,yield uses containedin
-syntax region  typescriptBlock                 matchgroup=typescriptBraces start=/{/ end=/}/ contains=@typescriptStatement,@typescriptComments,typescriptFuncCall fold
-  " Temporary fix, add FuncCall to Block children
+syntax region  typescriptBlock                 matchgroup=typescriptBraces start=/{/ end=/}/ contains=@typescriptStatement,@typescriptComments,typescriptFuncCall,typescriptBinaryOp fold
+  " Temporary fix, add FuncCall to Block children and binaryOp for conditional returns in arrowFuncArg
 ```
 
 ```jsx_pretty.vim
