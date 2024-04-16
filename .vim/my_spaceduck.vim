@@ -221,7 +221,7 @@ hi typescriptTypeReference guifg=#FF52A2
 hi typescriptCryptoGlobal guifg=#A2FF86
 hi typescriptClassAndObjectProperty guifg=#8576FF
 hi link tsxCOProp typescriptClassAndObjectProperty
-hi typescriptOptionalChain guifg=#31363F
+hi typescriptOptionalChain guifg=#C4E4FF
 
 hi link typescriptFuncCall typescriptReflectMethod
 hi link typescriptArrayMethod typescriptReflectMethod
