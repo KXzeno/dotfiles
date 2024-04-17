@@ -222,6 +222,7 @@ hi typescriptCryptoGlobal guifg=#A2FF86
 hi typescriptClassAndObjectProperty guifg=#8576FF
 hi link tsxCOProp typescriptClassAndObjectProperty
 hi typescriptOptionalChain guifg=#C4E4FF
+hi link typescriptTypedHook typescriptFuncCall
 
 hi link typescriptFuncCall typescriptReflectMethod
 hi link typescriptArrayMethod typescriptReflectMethod
