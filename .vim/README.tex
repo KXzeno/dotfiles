@@ -40,7 +40,7 @@ syntax match typescriptOptionalChain /?\ze\./
 
 ```common.vim
 " other keywords like return,case,yield uses containedin
-syntax region  typescriptBlock                 matchgroup=typescriptBraces start=/{/ end=/}/ contains=@typescriptStatement,@typescriptComments,typescriptFuncCall,typescriptBinaryOp fold
+syntax region  typescriptBlock                 matchgroup=typescriptBraces start=/{/ end=/}/ contains=@typescriptStatement,@typescriptComments,typescriptFuncCall,typescriptClassAndObjectName,typescriptClassAndObjectProperty,typescriptOptionalMark,typescriptBinaryOp,tsxCOProp,typescriptTypedHook fold
   " Temporary fix, add FuncCall to Block children and binaryOp for conditional returns in arrowFuncArg
 ```
 
@@ -110,6 +110,11 @@ syntax region typescriptParamImpl matchgroup=typescriptParens
   \ contains=typescriptDecorator,@typescriptParameterList,@typescriptComments,typescriptBlock,typescriptClassAndObjectName,typescriptDotNotation,typescriptClassAndObjectProperty,tsxCOProp
   \ nextgroup=typescriptReturnAnnotation,typescriptBlock
   \ contained skipwhite skipnl
+
+Kx-crafted.
+syntax match typescriptTypedHook /use[A-Z]\k*<\@=/  "For regexp help, understand regexp fundamentals then do--e.g., `:help \k` which in this case shows info on 'iskeyword'
+      \ nextgroup=typescriptTypeArguments
+      \ skipwhite skipnl
 ```
 ```keyword.vim
 syntax region  typescriptConditionalParen             contained matchgroup=typescriptParens
