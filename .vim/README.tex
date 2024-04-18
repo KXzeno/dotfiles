@@ -1,6 +1,6 @@
 Add to polyglot
 
-```doc.vim
+``` doc.vim
  syntax keyword typescriptDocTags               contained borrows exports nextgroup=typescriptDocA skipwhite
  syntax keyword typescriptDocTags               contained param arg argument property prop module nextgroup=typescriptDocNamedParamType,typescriptDocParamName skipwhite
 
@@ -10,7 +10,7 @@ Add to polyglot
  syntax keyword typescriptDocTags               contained define enum extends implements this typedef nextgroup=typescriptDocParamType skipwhite
  syntax keyword typescriptDocTags               contained return returns throws exception nextgroup=typescriptDocParamType,typescriptDocParamName skipwhite
  syntax keyword typescriptDocTags               contained see nextgroup=typescriptDocRef skipwhite
- ```
+```
                                                                                                                   
 ```function.vim
 +syn match tsxFuncName /\b\([a-zA-Z_]\w*\)\s*(/ contained
@@ -123,4 +123,11 @@ syntax region  typescriptConditionalParen             contained matchgroup=types
   \ contains=@typescriptValue,@typescriptComments,typescriptDotNotation,typescriptBinaryOp,tsxCOProp,typescriptClassAndObjectProperty
   \ nextgroup=typescriptBlock
   \ skipwhite skipempty 
+```
+
+```literal.vim
+syntax region  typescriptTemplateSubstitution matchgroup=typescriptTemplateSB
+  \ start=/\${/ end=/}/
+  \ contains=@typescriptValue,typescriptCastKeyword,typescriptBinaryOp
+  \ contained
 ```
