@@ -131,3 +131,8 @@ syntax region  typescriptTemplateSubstitution matchgroup=typescriptTemplateSB
   \ contains=@typescriptValue,typescriptCastKeyword,typescriptBinaryOp
   \ contained
 ```
+
+```symbols.vim
+syntax match   typescriptAssign  /=/ nextgroup=@typescriptValue,typescriptTypedHook
+  \ skipwhite skipempty
+```
