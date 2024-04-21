@@ -123,6 +123,8 @@ syntax region  typescriptConditionalParen             contained matchgroup=types
   \ contains=@typescriptValue,@typescriptComments,typescriptDotNotation,typescriptBinaryOp,tsxCOProp,typescriptClassAndObjectProperty
   \ nextgroup=typescriptBlock
   \ skipwhite skipempty 
+
+Append typescriptConditional to nextgroup of itself to handle case: 'if else', as it only does if/else/switch 
 ```
 
 ```literal.vim
