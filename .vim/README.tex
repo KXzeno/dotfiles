@@ -40,7 +40,7 @@ syntax match typescriptOptionalChain /?\ze\./
 
 ```common.vim
 " other keywords like return,case,yield uses containedin
-syntax region  typescriptBlock                 matchgroup=typescriptBraces start=/{/ end=/}/ contains=@typescriptStatement,@typescriptComments,typescriptFuncCall,typescriptClassAndObjectName,typescriptClassAndObjectProperty,typescriptOptionalMark,typescriptBinaryOp,tsxCOProp,typescriptTypedHook fold
+syntax region  typescriptBlock                 matchgroup=typescriptBraces start=/{/ end=/}/ contains=@typescriptStatement,@typescriptComments,typescriptFuncCall,typescriptClassAndObjectName,typescriptClassAndObjectProperty,typescriptOptionalMark,typescriptBinaryOp,tsxCOProp,typescriptTypedHook,typescriptCastKeyword fold
   " Temporary fix, add FuncCall to Block children and binaryOp for conditional returns in arrowFuncArg
 ```
 
@@ -125,6 +125,11 @@ syntax region  typescriptConditionalParen             contained matchgroup=types
   \ skipwhite skipempty 
 
 Append typescriptConditional to nextgroup of itself to handle case: 'if else', as it only does if/else/switch 
+
+syntax match typescriptDefaultImportName /\v\h\k*( |,)/
+  \ contained
+  \ nextgroup=typescriptTypeBlock,typescriptImport
+  \ skipwhite skipempty
 ```
 
 ```literal.vim
